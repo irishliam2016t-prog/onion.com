@@ -1,0 +1,250 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Onions.com 🧅</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f7f6e9;
+    color: #263b20;
+}
+
+header {
+    background: #294d26;
+    color: white;
+    padding: 22px 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 27px;
+    font-weight: bold;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin-left: 25px;
+}
+
+.hero {
+    text-align: center;
+    padding: 100px 20px;
+    background: linear-gradient(135deg, #e8edc5, #f6e7a5);
+}
+
+.hero h1 {
+    font-size: 65px;
+    margin-bottom: 15px;
+}
+
+.hero p {
+    font-size: 19px;
+    margin-bottom: 30px;
+}
+
+.hero button {
+    background: #315d2a;
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 30px;
+    font-size: 17px;
+    cursor: pointer;
+}
+
+.hero button:hover {
+    background: #497b3c;
+}
+
+.section {
+    padding: 65px 8%;
+    text-align: center;
+}
+
+.section h2 {
+    font-size: 35px;
+    margin-bottom: 30px;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 25px;
+}
+
+.card {
+    background: white;
+    padding: 30px 20px;
+    border-radius: 18px;
+    box-shadow: 0 5px 15px #00000010;
+    transition: 0.2s;
+}
+
+.card:hover {
+    transform: translateY(-7px);
+}
+
+.card .emoji {
+    font-size: 65px;
+    margin-bottom: 15px;
+}
+
+.card h3 {
+    margin-bottom: 10px;
+}
+
+.facts {
+    background: #e7edcf;
+}
+
+.fact-box {
+    background: white;
+    max-width: 650px;
+    margin: auto;
+    padding: 35px;
+    border-radius: 20px;
+}
+
+.fact-box p {
+    font-size: 19px;
+    margin-bottom: 20px;
+}
+
+.fact-box button {
+    padding: 12px 25px;
+    border: none;
+    background: #315d2a;
+    color: white;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+footer {
+    background: #294d26;
+    color: white;
+    text-align: center;
+    padding: 35px;
+}
+
+footer p {
+    margin: 8px;
+}
+
+@media(max-width:600px) {
+    .hero h1 {
+        font-size: 43px;
+    }
+    nav a {
+        margin-left: 8px;
+        font-size: 13px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">🧅 ONIONS.COM</div>
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#types">Types</a>
+        <a href="#facts">Facts</a>
+    </nav>
+</header>
+
+<section class="hero" id="home">
+    <h1>WELCOME TO ONIONS.COM 🧅</h1>
+    <p>The internet's number one destination for everything onion.</p>
+    <button onclick="document.getElementById('types').scrollIntoView({behavior:'smooth'})">
+        Explore Onions
+    </button>
+</section>
+
+<section class="section" id="types">
+    <h2>THE ONION COLLECTION</h2>
+
+    <div class="cards">
+        <div class="card">
+            <div class="emoji">🧅</div>
+            <h3>Yellow Onion</h3>
+            <p>The classic onion. A true legend.</p>
+        </div>
+
+        <div class="card">
+            <div class="emoji">🧅</div>
+            <h3>Red Onion</h3>
+            <p>Fancy, colourful and delicious.</p>
+        </div>
+
+        <div class="card">
+            <div class="emoji">🧅</div>
+            <h3>White Onion</h3>
+            <p>Simple. Powerful. Underrated.</p>
+        </div>
+
+        <div class="card">
+            <div class="emoji">🌱</div>
+            <h3>Spring Onion</h3>
+            <p>Small onion. Massive potential.</p>
+        </div>
+    </div>
+</section>
+
+<section class="section facts" id="facts">
+    <h2>🧠 RANDOM ONION FACTS</h2>
+
+    <div class="fact-box">
+        <p id="fact">Click below to discover an onion fact!</p>
+        <button onclick="newFact()">NEW ONION FACT</button>
+    </div>
+</section>
+
+<section class="section">
+    <h2>THE ONION RATING SYSTEM</h2>
+    <div class="card">
+        <div class="emoji">🏆</div>
+        <h3>ONION OF THE DAY</h3>
+        <p>Rating: 10/10</p>
+        <p>Absolutely incredible. No further questions.</p>
+    </div>
+</section>
+
+<footer>
+    <h2>🧅 ONIONS.COM</h2>
+    <p>Made for onion lovers everywhere.</p>
+    <p>© 2026 Onions.com - All onions reserved.</p>
+</footer>
+
+<script>
+const facts = [
+    "Onions are vegetables belonging to the allium family.",
+    "Onions are closely related to garlic and leeks.",
+    "There are many different varieties of onions.",
+    "Onions can be eaten raw or cooked.",
+    "Chopping onions can make your eyes water.",
+    "Onions have been cultivated for thousands of years.",
+    "Onions are used in food all around the world."
+];
+
+function newFact() {
+    const random = Math.floor(Math.random() * facts.length);
+    document.getElementById("fact").textContent = facts[random];
+}
+</script>
+
+</body>
+</html>
